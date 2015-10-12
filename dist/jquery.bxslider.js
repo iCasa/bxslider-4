@@ -30,7 +30,7 @@
     responsive: true,
     slideZIndex: 50,
     wrapperClass: 'bx-wrapper',
-    showLoader: true,
+    showLoader: true, // show loader or not
 
     // TOUCH
     touchEnabled: true,
