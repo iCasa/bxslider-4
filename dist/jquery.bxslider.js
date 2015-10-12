@@ -31,6 +31,7 @@
     responsive: true,
     slideZIndex: 50,
     wrapperClass: 'bx-wrapper',
+    showLoader: true,
 
     // TOUCH
     touchEnabled: true,
@@ -202,8 +203,10 @@
         slider.viewport.attr('aria-live', 'polite');
       }
       // add a loading div to display while images are loading
-      slider.loader = $('<div class="bx-loading" />');
-      slider.viewport.prepend(slider.loader);
+      if(slider.settings.showLoader) {
+          slider.loader = $('<div class="bx-loading" />');
+          slider.viewport.prepend(slider.loader);
+      }
       // set el to a massive width, to hold any needed slides
       // also strip any margin and padding from el
       el.css({
@@ -311,7 +314,9 @@
         el.append(sliceAppend).prepend(slicePrepend);
       }
       // remove the loading DOM element
-      slider.loader.remove();
+      if(slider.settings.showLoader) {
+        slider.loader.remove();
+      }
       // set the left / top position of "el"
       setSlidePosition();
       // if "vertical" mode, always use adaptiveHeight to prevent odd behavior
